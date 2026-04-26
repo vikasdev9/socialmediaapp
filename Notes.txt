@@ -1,0 +1,77 @@
+What is React Native? 🤷‍♂️
+
+React Native is a framework that allows you to build mobile applications using React (JavaScript/TypeScript).
+Cross-platform development means writing code once that can run on multiple platforms.
+React Native is a cross-platform framework because you can write one codebase in JavaScript and deploy it to both iOS and Android.
+
+
+
+
+1.SetUp
+->npx create-expo-app@latest --template default@sdk-55
+->npx create-expo-app@latest --template 
+->npx create-expo-app@latest .
+
+2.Reset Project
+->npx expo rest Project
+->npx expo start --clear
+->npx expo start
+
+3.Convex SetUp
+->npm install convex
+->npx convex dev
+
+D:\GitHubRepository\SocialMediaApp>npx convex dev
+✔ Welcome to Convex! Would you like to login to your account? Login or create an account
+Welcome to developing with Convex, let's get you logged in.
+✔ Device name: DESKTOP-QP4U5M3
+Visit https://auth.convex.dev/device?user_code=WNWN-TDTJ to finish logging in.
+You should see the following code which expires in 299 seconds: WNWN-TDTJ
+✔ Open the browser? Yes
+✔ Saved credentials to C:\Users\Vikas\.convex\config.json
+✔ Project name: SocialMediaApp
+✔ Where should this dev deployment run?
+See https://www.convex.dev/pricing for pricing US East (N. Virginia)
+Tip: you can configure a default region for your team at https://dashboard.convex.dev/t/vikas-chauhan-78a18/settings
+✔ Created project socialmediaapp, manage it at https://dashboard.convex.dev/t/vikas-chauhan-78a18/socialmediaapp
+Temporary directory 'C:\Users\Vikas\AppData\Local\Temp' and project directory 'convex' are on different filesystems.
+  If you're running into errors with other tools watching the project directory, override the temporary directory location with the CONVEX_TMPDIR environment variable.
+  Be sure to pick a temporary directory that's on the same filesystem as your project.
+✔ Set up Convex AI files? (guidelines, AGENTS.md, agent skills) Yes
+✔ D:\GitHubRepository\SocialMediaApp\convex\_generated\ai\guidelines.md written
+✔ AGENTS.md written
+✔ CLAUDE.md written
+Installing Convex agent skills...
+(node:18496) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ Skills installed
+✔ Provisioned a dev deployment and saved its:
+    name as CONVEX_DEPLOYMENT
+    client URL as EXPO_PUBLIC_CONVEX_URL
+    HTTP actions URL as EXPO_PUBLIC_CONVEX_SITE_URL
+ to .env.local
+
+Write your Convex functions in convex\
+Give us feedback at https://convex.dev/community or support@convex.dev
+View the Convex dashboard at https://dashboard.convex.dev/d/avid-octopus-897
+
+✔ 10:48:47 Convex functions ready! (2.45s)
+
+
+D:\GitHubRepository\SocialMediaApp>npx convex dev                    
+✖ Environment variable CLERK_JWT_ISSUER_DOMAIN is used in auth config file but its value was not set.
+Go to:
+
+    https://dashboard.convex.dev/d/avid-octopus-897/settings/environment-variables?var=CLERK_JWT_ISSUER_DOMAIN
+
+  to set it up. 
+⠋ Preparing Convex functions...
+Terminate batch job (Y/N)? y
+
+D:\GitHubRepository\SocialMediaApp>npx convex env set CLERK_JWT_ISSUER_DOMAIN https://happy-beagle-37.clerk.accounts.dev
+✔ Successfully set CLERK_JWT_ISSUER_DOMAIN
+
+D:\GitHubRepository\SocialMediaApp>npx convex dev
+✔ 11:03:14 Convex functions ready! (2.52s)
+
+

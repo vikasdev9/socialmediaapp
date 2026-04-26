@@ -1,0 +1,139 @@
+how Expo knows the order: index.js → _layout.tsx → index.tsx.
+Here are clear notes explaining the flow.
+
+Expo Router Execution Flow (Notes)
+1️⃣ Entry Point (index.js)
+
+File:
+
+index.js
+
+Code:
+
+import "expo-router/entry";
+What this does
+This tells Expo to use Expo Router.
+It starts the file-based routing system.
+Expo Router then looks for the app folder.
+
+Flow starts here:
+
+index.js
+   ↓
+expo-router/entry
+2️⃣ Router Looks for app Folder
+
+Expo Router automatically scans the app directory.
+
+Example:
+
+app/
+ ├── _layout.tsx
+ └── index.tsx
+
+The router checks:
+
+app/_layout.tsx
+
+because _layout.tsx is the root layout wrapper.
+
+3️⃣ Layout Loads First
+
+File:
+
+app/_layout.tsx
+
+Example:
+
+import { Stack } from "expo-router";
+
+export default function RootLayout() {
+  return <Stack />;
+}
+Purpose
+Defines navigation structure
+Wraps all screens
+Works like NavigationContainer in React Navigation
+
+Flow:
+
+index.js
+   ↓
+expo-router
+   ↓
+_layout.tsx
+4️⃣ Router Loads Screen
+
+After layout loads, router loads the matching screen.
+
+File:
+
+app/index.tsx
+
+This becomes the home screen.
+
+Example:
+
+import { View, Text } from "react-native";
+
+export default function HomeScreen() {
+  return (
+    <View>
+      <Text>Hello React Native 🚀</Text>
+    </View>
+  );
+}
+
+Flow:
+
+index.js
+   ↓
+expo-router/entry
+   ↓
+app/_layout.tsx
+   ↓
+app/index.tsx
+5️⃣ Complete Execution Flow
+App Start
+   ↓
+index.js
+   ↓
+expo-router/entry
+   ↓
+Scan app folder
+   ↓
+Load _layout.tsx
+   ↓
+Load index.tsx
+   ↓
+Render screen
+6️⃣ Folder Routing Rules
+File	Meaning
+index.tsx	Home screen
+_layout.tsx	Navigation wrapper
+profile.tsx	/profile screen
+[id].tsx	Dynamic route
+(tabs)	Route group
+
+Example:
+
+app
+ ├── _layout.tsx
+ ├── index.tsx
+ ├── profile.tsx
+
+Routes:
+
+/        → index.tsx
+/profile → profile.tsx
+7️⃣ Android Developer Comparison
+Android	Expo Router
+AndroidManifest	app folder
+Activity	Screen
+Navigation Graph	Folder structure
+Intent	router.push()
+Fragment	Nested routes
+
+✅ One line summary
+
+index.js → starts expo-router → loads _layout.tsx → loads screen (index.tsx)

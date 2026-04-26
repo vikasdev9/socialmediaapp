@@ -1,0 +1,66 @@
+import { Stack } from "expo-router";
+
+export default function RootLayout() {
+  return <Stack />;
+}
+
+
+Your root layout should only contain Stack navigation.
+
+app/_layout.tsx
+import { Stack } from "expo-router";
+
+export default function RootLayout() {
+  return <Stack screenOptions={{ headerShown: false }} />;
+}
+✅ Redirect should be inside index.tsx
+
+Create or update:
+
+app/index.tsx
+import { Redirect } from "expo-router";
+
+export default function Index() {
+  return <Redirect href="/(tabs)" />;
+}
+✅ Final Folder Structure
+app
+│
+├── _layout.tsx
+├── index.tsx
+│
+└── (tabs)
+     ├── _layout.tsx
+     ├── index.tsx
+     ├── bookmarks.tsx
+     ├── create.tsx
+     ├── notifications.tsx
+     └── profile.tsx
+✅ Why This Works
+
+Correct flow:
+
+index.js
+   ↓
+expo-router
+   ↓
+app/_layout.tsx
+   ↓
+app/index.tsx
+   ↓
+Redirect → /(tabs)
+   ↓
+(tabs)/_layout.tsx
+
+Your previous flow was:
+
+_layout.tsx
+   ↓
+Redirect
+   ↓
+Reload layout again
+   ↓
+Infinite loop ❌
+▶ After fixing run
+npx expo start -c
+
